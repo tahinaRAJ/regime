@@ -12,10 +12,14 @@
   - [x] creation de AuthFilter
   - [x] creation de RoleFilter
   - [x] update Config/Filters.php
+  - [ ] creation de model
+    - [x] UserModel
+    - [ ] PorteMonaieModel
+    - [ ] RegimeModel
   - [ ] creation de controller
     - [ ] AuthController
       - [x] showLoginForm
-      - [ ] login
+      - [x] login
       - [x] logout
       - [ ] createAccount
     - [ ] UserController
