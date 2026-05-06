@@ -10,7 +10,7 @@
     - [ ] Caracteristique
     - [ ] Portemonaie
   - [x] creation de AuthFilter
-  - [ ] creation de RoleFilter
+  - [x] creation de RoleFilter
   - [ ] creation de controller
     - [ ] AuthController
     - [ ] UserController
