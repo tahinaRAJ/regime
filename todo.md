@@ -14,5 +14,9 @@
   - [x] update Config/Filters.php
   - [ ] creation de controller
     - [ ] AuthController
+      - [x] showLoginForm
+      - [ ] login
+      - [x] logout
+      - [ ] createAccount
     - [ ] UserController
   - [ ] 
