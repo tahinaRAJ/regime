@@ -67,3 +67,25 @@ CREATE TABLE portemonaie (
     montant DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (idUser) REFERENCES user (id)
 );
+
+CREATE TABLE paiement(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    idUser INT NOT NULL,
+    idOption INT NOT NULL,
+    datePaiement DATETIME NOT NULL,
+    FOREIGN KEY (idUser) REFERENCES user (id),
+    FOREIGN KEY (idOption) REFERENCES option (id)
+);
+
+CREATE TABLE choixUser(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    idUser INT NOT NULL,
+    idObjectif INT NOT NULL,
+    idRegime INT NOT NULL,
+    idActivity INT NOT NULL,
+    FOREIGN KEY (idUser) REFERENCES user (id),
+    FOREIGN KEY (idObjectif) REFERENCES objectif (id),
+    FOREIGN KEY (idRegime) REFERENCES regime (id),
+    FOREIGN KEY (idActivity) REFERENCES activity (id),
+    dateChoix DATETIME NOT NULL
+);
