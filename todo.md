@@ -11,6 +11,7 @@
     - [ ] Portemonaie
   - [x] creation de AuthFilter
   - [x] creation de RoleFilter
+  - [x] update Config/Filters.php
   - [ ] creation de controller
     - [ ] AuthController
     - [ ] UserController
