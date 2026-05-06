@@ -89,3 +89,6 @@ CREATE TABLE choixUser(
     FOREIGN KEY (idActivity) REFERENCES activity (id),
     dateChoix DATETIME NOT NULL
 );
+
+ALTER TABLE user
+ADD COLUMN role ENUM('user', 'admin') NOT NULL DEFAULT 'user';
