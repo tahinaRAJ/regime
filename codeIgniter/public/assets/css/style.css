@@ -88,7 +88,9 @@ body {
     border-radius: 32px;
     padding: 48px 40px;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 92vh;
     box-shadow: 0 20px 40px rgba(76, 175, 80, 0.15);
 }
 
@@ -182,6 +184,21 @@ body {
     border: 1.5px solid rgba(76, 175, 80, 0.2);
     border-radius: 20px;
     transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.organic-field select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 18px 60px 18px 20px;
+    color: #2e7d32;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    position: relative;
+    z-index: 2;
+    font-family: inherit;
 }
 
 .organic-field input {
