@@ -7,20 +7,20 @@
 - [ ] login et inscription
   - [ ] creation de model
     - [x] User
-    - [ ] Caracteristique
-    - [ ] Portemonaie
+    - [x] Caracteristique
+    - [x] Portemonaie
   - [x] creation de AuthFilter
   - [x] creation de RoleFilter
   - [x] update Config/Filters.php
   - [ ] creation de model
     - [x] UserModel
-    - [ ] PaiementModel
-    - [ ] PorteMonaieModel
+    - [x] PaiementModel
+    - [x] PorteMonaieModel
       - [ ] getSolde()
       - [ ] DeductSolde()
       - [ ] addSoldeByCode()
       - [ ] validerCode()
-    - [ ] RegimeModel
+    - [x] RegimeModel
       - [ ] predictActivityNecessaire()
       - [ ] predictRegimeNecessaire()
   
