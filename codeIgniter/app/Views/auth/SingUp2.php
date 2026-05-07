@@ -2,6 +2,8 @@
 
 <?= $this->section('content') ?>
 
+<?php $data = $data ?? []; ?>
+
 <?php if (!empty($erreur)) : ?>
     <div class="gentle-error" style="display:block;margin-bottom:12px;">
         <?= esc($erreur) ?>
