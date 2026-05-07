@@ -6,7 +6,7 @@
 # Backend
 - [ ] login et inscription
   - [ ] creation de model
-    - [ ] User
+    - [x] User
     - [ ] Caracteristique
     - [ ] Portemonaie
   - [x] creation de AuthFilter
@@ -26,7 +26,11 @@
       - [ ] createAccount
     - [ ] UserController
       - [ ] showProfil (choix et info perso)
-    - [ ] 
+    - [ ] RegimeController
+      - [ ] predictRegime()
+        - [ ] prends les informations de l'user en session
+        - [ ] appelle de predictActivityNecessaire() et predictRegimeNecessaire()
+        - [ ] return en json pour l'ajax
 
 # Frontend
 - [ ] trouver un template pour le login/sign up
