@@ -89,4 +89,4 @@ CREATE TABLE choixUser(
 );
 
 ALTER TABLE user
-ADD COLUMN role ENUM('user', 'admin') NOT NULL DEFAULT 'user';
+ADD COLUMN role ENUM('client', 'admin') NOT NULL DEFAULT 'client';
