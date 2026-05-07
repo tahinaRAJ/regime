@@ -20,12 +20,12 @@ class AuthController extends BaseController
     {
         $model = new UserModel();
 
-        $name = trim($this->request->getPost('name') ?? '');
-        $email = trim($this->request->getPost('email') ?? '');
-        $genre = $this->request->getPost('genre') ?? '';
-        $age = $this->request->getPost('age') ?? '';
-        $password = $this->request->getPost('password') ?? '';
-        $passwordConfirm = $this->request->getPost('password_confirm') ?? '';
+        $name = trim($this->request->getPost('name'));
+        $email = trim($this->request->getPost('email'));
+        $genre = $this->request->getPost('genre');
+        $age = $this->request->getPost('age');
+        $password = $this->request->getPost('password');
+        $passwordConfirm = $this->request->getPost('password_confirm');
 
         $data = [
             'name' => $name,
@@ -79,8 +79,8 @@ class AuthController extends BaseController
             return redirect()->to('/register');
         }
 
-        $height = $this->request->getPost('height') ?? '';
-        $weight = $this->request->getPost('weight') ?? '';
+        $height = $this->request->getPost('height');
+        $weight = $this->request->getPost('weight');
 
         $data = [
             'height' => $height,
@@ -128,10 +128,10 @@ class AuthController extends BaseController
     public function login()
     {
         $model = new UserModel();
-        $email = $this->request->getPost('email') ?? '';
-        $password = $this->request->getPost('password') ?? '';
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
         $user = $model->where('email', $email)->first();
-        if (!$user || ! (password_verify($password, $user['password']) || $password === $user['password'])) {
+        if (!$user || $password !== $user['password']) {
             return view('auth/login', [
                 'erreur' => 'Email ou mot de passe incorrect'
             ]);
