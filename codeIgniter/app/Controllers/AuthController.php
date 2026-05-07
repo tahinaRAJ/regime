@@ -13,7 +13,7 @@ class AuthController extends BaseController
 
     public function showRegisterForm()
     {
-        return view('auth/register');
+        return view('auth/SingUp1');
     }
 
     public function register()
@@ -35,7 +35,7 @@ class AuthController extends BaseController
         ];
 
         if ($name === '' || $email === '' || $genre === '' || $age === '' || $password === '' || $passwordConfirm === '') {
-            return view('auth/register', [
+            return view('auth/SingUp1', [
                 'erreur' => 'Veuillez remplir tous les champs',
                 'data' => $data,
             ]);
@@ -43,7 +43,7 @@ class AuthController extends BaseController
 
         $existingUser = $model->where('email', $email)->first();
         if ($existingUser) {
-            return view('auth/register', [
+            return view('auth/SingUp1', [
                 'erreur' => 'Cet email est déjà utilisé',
                 'data' => $data,
             ]);
@@ -67,7 +67,7 @@ class AuthController extends BaseController
             return redirect()->to('/register');
         }
 
-        return view('auth/register_health', [
+        return view('auth/SingUp2', [
             'registerUser' => $registerUser,
         ]);
     }
@@ -88,7 +88,7 @@ class AuthController extends BaseController
         ];
 
         if ($height === '' || $weight === '') {
-            return view('auth/register_health', [
+            return view('auth/SingUp2', [
                 'registerUser' => $registerUser,
                 'erreur' => 'Veuillez remplir tous les champs',
                 'data' => $data,
@@ -105,7 +105,7 @@ class AuthController extends BaseController
         ], true);
 
         if (!$userId) {
-            return view('auth/register_health', [
+            return view('auth/SingUp2', [
                 'registerUser' => $registerUser,
                 'erreur' => 'Erreur lors de la création du compte',
                 'data' => $data,
@@ -131,7 +131,7 @@ class AuthController extends BaseController
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
         $user = $model->where('email', $email)->first();
-        if (!$user || $password !== $user['password']) {
+        if (!$user || ! (password_verify($password, $user['password']) || $password === $user['password'])) {
             return view('auth/login', [
                 'erreur' => 'Email ou mot de passe incorrect'
             ]);
