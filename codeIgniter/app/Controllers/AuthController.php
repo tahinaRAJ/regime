@@ -13,7 +13,7 @@ class AuthController extends BaseController
 
     public function showRegisterForm()
     {
-        return view('auth/SingUp1');
+        return view('auth/SingUp1', ['data' => []]);
     }
 
     public function register()
@@ -54,7 +54,7 @@ class AuthController extends BaseController
             'email' => $email,
             'genre' => $genre,
             'age' => $age,
-            'password' => password_hash($password, PASSWORD_DEFAULT),
+            'password' => $password,
         ]);
 
         return redirect()->to('/register/health');
@@ -69,6 +69,7 @@ class AuthController extends BaseController
 
         return view('auth/SingUp2', [
             'registerUser' => $registerUser,
+            'data' => [],
         ]);
     }
 
