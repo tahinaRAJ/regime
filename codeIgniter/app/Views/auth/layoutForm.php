@@ -49,6 +49,8 @@
             <?= $this->renderSection('content') ?>
             <script src="<?= base_url('assets/js/form-utils.js') ?>"></script>
             <script src="<?= base_url('assets/js/script.js') ?>"></script>
+</div>
+</div>
 </body>
 
 </html>
