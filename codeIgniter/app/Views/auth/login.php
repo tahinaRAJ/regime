@@ -66,8 +66,6 @@
             </svg>
         </div>
     </div>
-    <h3>Bienvenue à la Maison</h3>
-    <p>Votre sanctuaire vous attend...</p>
 </div>
 </div>
 </div>
