@@ -70,11 +70,9 @@ CREATE TABLE portemonaie (
 
 CREATE TABLE paiement(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    idUser INT NOT NULL,
-    idOption INT NOT NULL,
+    idUserOption INT NOT NULL,
     datePaiement DATETIME NOT NULL,
-    FOREIGN KEY (idUser) REFERENCES user (id),
-    FOREIGN KEY (idOption) REFERENCES option (id)
+    FOREIGN KEY (idUserOption) REFERENCES userOption (id)
 );
 
 CREATE TABLE choixUser(
