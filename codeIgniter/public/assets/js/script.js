@@ -8,7 +8,7 @@ class EcoWellnessLoginForm extends FormUtils.LoginFormBase {
             validators: {
                 email: (v) => {
                     if (!v) return { isValid: false, message: 'Vous avez besoin d\'une adresse email' };
-                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return { isValid: false, message: 'Please share a valid email address' };
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return { isValid: false, message: 'Veuillez partager une adresse email valide' };
                     return { isValid: true };
                 },
                 password: (v) => {
