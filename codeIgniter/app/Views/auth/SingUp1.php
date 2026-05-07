@@ -2,9 +2,18 @@
 
 <?= $this->section('content') ?>
 
-<form action="<?= base_url('auth/process_step1') ?>" method="post" class="harmony-form" id="loginForm" novalidate>    <div class="organic-field">
+<?php if (!empty($erreur)) : ?>
+    <div class="gentle-error" style="display:block;margin-bottom:12px;">
+        <?= esc($erreur) ?>
+    </div>
+<?php endif; ?>
+
+<form action="<?= base_url('register') ?>" method="post" class="harmony-form" id="signupStep1Form" novalidate>
+    <?= csrf_field() ?>
+
+    <div class="organic-field">
         <div class="field-nature"></div>
-        <input type="text" id="name" name="name" required autocomplete="name">
+        <input type="text" id="name" name="name" required autocomplete="name" value="<?= esc($data['name'] ?? '') ?>">
         <label for="name">Nom</label>
         <div class="growth-indicator">
             <div class="leaf-sprout"></div>
@@ -14,7 +23,7 @@
 
     <div class="organic-field">
         <div class="field-nature"></div>
-        <input type="email" id="email" name="email" required autocomplete="email">
+        <input type="email" id="email" name="email" required autocomplete="email" value="<?= esc($data['email'] ?? '') ?>">
         <label for="email">Adresse Email</label>
         <div class="growth-indicator">
             <div class="leaf-sprout"></div>
@@ -24,7 +33,24 @@
 
     <div class="organic-field">
         <div class="field-nature"></div>
-        <input type="password" id="password" name="password" required autocomplete="current-password">
+        <select id="genre" name="genre" required style="width:100%;padding:16px 20px;border-radius:20px;border:2px solid var(--sage-200);background:rgba(255,255,255,.85);">
+            <option value="" <?= empty($data['genre']) ? 'selected' : '' ?>>Genre...</option>
+            <option value="Homme" <?= ($data['genre'] ?? '') === 'Homme' ? 'selected' : '' ?>>Homme</option>
+            <option value="Femme" <?= ($data['genre'] ?? '') === 'Femme' ? 'selected' : '' ?>>Femme</option>
+        </select>
+        <span class="gentle-error" id="genreError"></span>
+    </div>
+
+    <div class="organic-field">
+        <div class="field-nature"></div>
+        <input type="number" id="age" name="age" required autocomplete="age" value="<?= esc($data['age'] ?? '') ?>">
+        <label for="age">Âge</label>
+        <span class="gentle-error" id="ageError"></span>
+    </div>
+
+    <div class="organic-field">
+        <div class="field-nature"></div>
+        <input type="password" id="password" name="password" required autocomplete="new-password">
         <label for="password">Mot de passe</label>
         <button type="button" class="nature-toggle" id="passwordToggle" aria-label="Toggle password visibility">
             <svg class="eye-visible" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -35,6 +61,13 @@
             </svg>
         </button>
         <span class="gentle-error" id="passwordError"></span>
+    </div>
+
+    <div class="organic-field">
+        <div class="field-nature"></div>
+        <input type="password" id="password_confirm" name="password_confirm" required autocomplete="new-password">
+        <label for="password_confirm">Confirmer le mot de passe</label>
+        <span class="gentle-error" id="password_confirmError"></span>
     </div>
 
     <button type="submit" class="harmony-button">
@@ -61,7 +94,7 @@
 
 <div class="nurture-signup">
     <span>Déjà un compte ? </span>
-    <a href="#" class="growth-link">Se connecter</a>
+    <a href="<?= base_url('login') ?>" class="growth-link">Se connecter</a>
 </div>
 
 <div class="harmony-success" id="successMessage">

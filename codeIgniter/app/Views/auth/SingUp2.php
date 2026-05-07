@@ -2,25 +2,32 @@
 
 <?= $this->section('content') ?>
 
-<form method="post" class="harmony-form" id="loginForm" novalidate>
+<?php if (!empty($erreur)) : ?>
+    <div class="gentle-error" style="display:block;margin-bottom:12px;">
+        <?= esc($erreur) ?>
+    </div>
+<?php endif; ?>
+
+<form method="post" action="<?= base_url('register/health') ?>" class="harmony-form" id="signupStep2Form" novalidate>
+    <?= csrf_field() ?>
     <div class="organic-field">
         <div class="field-nature"></div>
-        <input type="number" id="taille" name="taille" required autocomplete="taille">
-        <label for="taille">Taille (en cm)</label>
+        <input type="number" step="0.01" id="height" name="height" required autocomplete="height" value="<?= esc($data['height'] ?? '') ?>">
+        <label for="height">Taille (en cm)</label>
         <div class="growth-indicator">
             <div class="leaf-sprout"></div>
         </div>
-        <span class="gentle-error" id="tailleError"></span>
+        <span class="gentle-error" id="heightError"></span>
     </div>
 
     <div class="organic-field">
         <div class="field-nature"></div>
-        <input type="number" id="poids" name="poids" required autocomplete="poids">
-        <label for="poids">Poids (en kg)</label>
+        <input type="number" step="0.01" id="weight" name="weight" required autocomplete="weight" value="<?= esc($data['weight'] ?? '') ?>">
+        <label for="weight">Poids (en kg)</label>
         <div class="growth-indicator">
             <div class="leaf-sprout"></div>
         </div>
-        <span class="gentle-error" id="poidsError"></span>
+        <span class="gentle-error" id="weightError"></span>
     </div>
 
     <button type="submit" class="harmony-button">
@@ -47,7 +54,7 @@
 
 <div class="nurture-signup">
     <span>Déjà un compte ? </span>
-    <a href="#" class="growth-link">Se connecter</a>
+    <a href="<?= base_url('login') ?>" class="growth-link">Se connecter</a>
 </div>
 
 <div class="harmony-success" id="successMessage">
