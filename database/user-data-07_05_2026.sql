@@ -6,6 +6,6 @@ INSERT INTO user (name, email, password, genre, role) VALUES
 ('Thomas Martin', 'thomas@test.fr', 'Client@9012', 'Homme', 'client');
 
 INSERT INTO caracteristique (idUser, age, height, weight) VALUES
-(1, 35, 1.78, 85.50),  -- Jean (admin)
-(2, 28, 1.65, 62.00),  -- Marie (admin)
-(3, 42, 1.80, 95.30);  -- Thomas (client)
+(1, 35, 178, 85.50),  -- Jean (admin)
+(2, 28, 165, 62.00),  -- Marie (admin)
+(3, 42, 180, 95.30);  -- Thomas (client)
