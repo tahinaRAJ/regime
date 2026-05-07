@@ -94,7 +94,7 @@
             </div>
 
             <div class="nurture-signup">
-                <span>C'est votre premi ? </span>
+                <span>C'est votre première visite ? </span>
                 <a href="#" class="growth-link">Commencer votre parcours</a>
             </div>
 
