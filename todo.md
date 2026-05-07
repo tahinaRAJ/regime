@@ -16,10 +16,10 @@
     - [x] UserModel
     - [x] PaiementModel
     - [x] PorteMonaieModel
-      - [ ] getSolde()
-      - [ ] DeductSolde()
-      - [ ] addSoldeByCode()
-      - [ ] validerCode()
+      - [x] getSolde()
+      - [x] DeductSolde()
+      - [x] addSoldeByCode()
+      - [x] validerCode()
     - [x] RegimeModel
       - [ ] predictActivityNecessaire()
       - [ ] predictRegimeNecessaire()
