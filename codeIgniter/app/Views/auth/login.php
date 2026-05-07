@@ -49,7 +49,7 @@
                 <div class="organic-field">
                     <div class="field-nature"></div>
                     <input type="email" id="email" name="email" required autocomplete="email">
-                    <label for="email">Email Address</label>
+                    <label for="email">Adresse Email</label>
                     <div class="growth-indicator">
                         <div class="leaf-sprout"></div>
                     </div>
@@ -59,7 +59,7 @@
                 <div class="organic-field">
                     <div class="field-nature"></div>
                     <input type="password" id="password" name="password" required autocomplete="current-password">
-                    <label for="password">Password</label>
+                    <label for="password">Mot de passe</label>
                     <button type="button" class="nature-toggle" id="passwordToggle" aria-label="Toggle password visibility">
                         <svg class="eye-visible" width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M10 4c-4 0-7 3-8 6 1 3 4 6 8 6s7-3 8-6c-1-3-4-6-8-6zm0 10a4 4 0 110-8 4 4 0 010 8zm0-6a2 2 0 100 4 2 2 0 000-4z" fill="currentColor"/>
@@ -73,7 +73,7 @@
 
                 <button type="submit" class="harmony-button">
                     <div class="button-earth"></div>
-                    <span class="button-text">Enter Sanctuary</span>
+                    <span class="button-text">Se connecter</span>
                     <div class="button-growth">
                         <div class="growing-circle circle-1"></div>
                         <div class="growing-circle circle-2"></div>
