@@ -45,7 +45,15 @@
       
 # Frontend
 - [x] trouver un template pour le login/sign up
-- [ ] integrer le template dans les views
+- [x] integrer le template dans les views
+- [ ] modification du template
+  - [ ] formulaire d'inscription I
+    - [ ] nom
+    - [ ] mail
+    - [ ] genre
+  - [ ] formulaire d'inscription II
+    - [ ] taille
+    - [ ] poids
 - [ ] affichage de l'imc dans le dashboard
 - [ ] creer la view de selection d'option et affichage de regime + sport necessaire
 - [ ] export PDF de la recommandation
