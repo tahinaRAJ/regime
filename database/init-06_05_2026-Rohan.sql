@@ -1,3 +1,4 @@
+-- Active: 1765287408229@@127.0.0.1@3306
 CREATE DATABASE regime;
 
 USE regime;
@@ -48,8 +49,9 @@ CREATE TABLE option(
 );
 
 CREATE TABLE userOption (
-    idUser INT NOT NULL PRIMARY KEY,
-    idOption INT NOT NULL PRIMARY KEY,
+    idUser INT NOT NULL,
+    idOption INT NOT NULL,
+    PRIMARY KEY (idUser, idOption),
     FOREIGN KEY (idUser) REFERENCES user (id),
     FOREIGN KEY (idOption) REFERENCES option (id)
 );
@@ -70,9 +72,9 @@ CREATE TABLE portemonaie (
 
 CREATE TABLE paiement(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    idUserOption INT NOT NULL,
+    idUser INT NOT NULL,
     datePaiement DATETIME NOT NULL,
-    FOREIGN KEY (idUserOption) REFERENCES userOption (id)
+    FOREIGN KEY (idUser) REFERENCES userOption (idUser)
 );
 
 CREATE TABLE choixUser(
