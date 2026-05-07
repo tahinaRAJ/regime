@@ -67,18 +67,6 @@ class FormUtils {
         setTimeout(() => { wrapper.style.borderColor = ''; }, 2000);
     }
 
-    static simulateLogin(email, password) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (email === 'admin@demo.com' && password === 'wrongpassword') {
-                    reject(new Error('Adresse email ou mot de passe incorrect'));
-                } else {
-                    resolve({ success: true, user: { email } });
-                }
-            }, 2000);
-        });
-    }
-
     // Build the toast with DOM APIs so untrusted `message` values can't inject HTML.
     static showNotification(message, type = 'info', container = null) {
         const target = container || document.querySelector('form');
@@ -295,14 +283,21 @@ FormUtils.LoginFormBase = class LoginFormBase {
     }
 
     // ---- lifecycle ----
-    async handleSubmit(e) {
-        e.preventDefault();
-        if (this.isSubmitting) return;
-        if (this.validateForm()) {
-            await this.submitForm();
-        } else {
-            this.shakeForm();
+    handleSubmit(e) {
+        if (this.isSubmitting) {
+            e.preventDefault();
+            return;
         }
+
+        if (!this.validateForm()) {
+            e.preventDefault();
+            this.shakeForm();
+            return;
+        }
+
+        // Form is valid: let the browser submit to the backend (no simulation).
+        this.isSubmitting = true;
+        this.submitBtn?.classList.add('loading');
     }
 
     validateForm() {
@@ -331,26 +326,8 @@ FormUtils.LoginFormBase = class LoginFormBase {
         }, { once: true });
     }
 
-    async submitForm() {
-        this.isSubmitting = true;
-        this.submitBtn?.classList.add('loading');
+    async submitForm() {}
 
-        try {
-            const email = document.getElementById('email')?.value || '';
-            const password = document.getElementById('password')?.value || '';
-            await FormUtils.simulateLogin(email, password);
-            this.onSuccess();
-        } catch (error) {
-            this.onLoginError(error.message);
-        } finally {
-            this.isSubmitting = false;
-            this.submitBtn?.classList.remove('loading');
-        }
-    }
-
-    // Default success behavior: fade out the form, fade in #successMessage.
-    // Forms that want to hide additional elements override `getElementsToHideOnSuccess`
-    // or pass `hideOnSuccess` in constructor options.
     onSuccess() {
         const elementsToHide = [...this.hideOnSuccess, ...this.getElementsToHideOnSuccess()];
         this.form.style.transition = 'all 0.3s ease';
