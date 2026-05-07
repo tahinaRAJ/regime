@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco Wellness Login</title>
+    <title>Se connecter</title>
     <meta name="description" content="Nature-inspired login form with organic shapes and a mindful, gentle interaction language.">
     <meta name="author" content="Aigars Silkalns / Colorlib">
     <link rel="canonical" href="https://puikinsh.github.io/login-forms/forms/eco-wellness/">
@@ -41,8 +41,8 @@
                     </svg>
                     <div class="zen-glow"></div>
                 </div>
-                <h1>Mindful Space</h1>
-                <p>Enter your wellness sanctuary</p>
+                <h1>MonNouveauMoi</h1>
+                <p> Devenir une meilleure version de soi</p>
             </div>
             
             <form class="harmony-form" id="loginForm" novalidate>
@@ -71,20 +71,6 @@
                     <span class="gentle-error" id="passwordError"></span>
                 </div>
 
-                <div class="mindful-options">
-                    <label class="zen-checkbox">
-                        <input type="checkbox" id="remember" name="remember">
-                        <span class="checkbox-leaf">
-                            <div class="leaf-shape"></div>
-                            <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                                <path d="M1 4l2.5 2.5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                        <span class="checkbox-text">Keep me centered</span>
-                    </label>
-                    <a href="#" class="healing-link">Restore access</a>
-                </div>
-
                 <button type="submit" class="harmony-button">
                     <div class="button-earth"></div>
                     <span class="button-text">Enter Sanctuary</span>
@@ -107,32 +93,9 @@
                 <div class="divider-branch"></div>
             </div>
 
-            <div class="natural-social">
-                <button type="button" class="earth-social">
-                    <div class="social-earth"></div>
-                    <svg width="18" height="18" viewBox="0 0 18 18">
-                        <path fill="#4285F4" d="M16.2 9.2c0-.5-.04-1-.12-1.5H9.2v2.8h3.9a3.4 3.4 0 01-1.5 2.2v1.8h2.4c1.4-1.3 2.2-3.2 2.2-5.3z"/>
-                        <path fill="#34A853" d="M9.2 16.5c2 0 3.7-.7 4.9-1.8l-2.4-1.8c-.7.5-1.5.7-2.5.7-1.9 0-3.6-1.3-4.2-3H2.6v1.8c1.2 2.4 3.7 4.1 6.6 4.1z"/>
-                        <path fill="#FBBC05" d="M5 10.8a5.2 5.2 0 010-2.6V6.4H2.6a8.6 8.6 0 000 7.2L5 10.8z"/>
-                        <path fill="#EA4335" d="M9.2 4.4c1.1 0 2.1.4 2.9 1.1l2.1-2.1C12.8 2.2 11.1 1.5 9.2 1.5c-2.9 0-5.4 1.7-6.6 4.1L5 7.4c.6-1.8 2.3-3 4.2-3z"/>
-                    </svg>
-                    <span>Google</span>
-                    <div class="social-glow"></div>
-                </button>
-                
-                <button type="button" class="earth-social">
-                    <div class="social-earth"></div>
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="#1DA1F2">
-                        <path d="M18 3.4c-.7.3-1.4.5-2.2.6.8-.5 1.4-1.2 1.7-2.1-.7.4-1.5.7-2.4.9C14.4 2.1 13.4 1.5 12.2 1.5c-2.1 0-3.8 1.7-3.8 3.8 0 .3 0 .6.1.9C5.8 6 3.1 4.6 1.3 2.4c-.3.5-.5 1.2-.5 1.9 0 1.3.7 2.5 1.7 3.1-.6 0-1.2-.2-1.7-.5 0 1.8 1.3 3.4 3 3.7-.3.1-.7.1-1 .1-.2 0-.5 0-.7-.1.5 1.5 1.9 2.6 3.5 2.6-1.3 1-2.9 1.6-4.7 1.6-.3 0-.6 0-.9-.1C1.7 15.4 3.7 16 5.9 16c7.1 0 11-5.9 11-11v-.5c.8-.5 1.4-1.2 1.9-2 0 0 0 0 .2-.1z"/>
-                    </svg>
-                    <span>Twitter</span>
-                    <div class="social-glow"></div>
-                </button>
-            </div>
-
             <div class="nurture-signup">
-                <span>New to wellness? </span>
-                <a href="#" class="growth-link">Begin your journey</a>
+                <span>C'est votre premi ? </span>
+                <a href="#" class="growth-link">Commencer votre parcours</a>
             </div>
 
             <div class="harmony-success" id="successMessage">
@@ -146,8 +109,8 @@
                         </svg>
                     </div>
                 </div>
-                <h3>Welcome Home</h3>
-                <p>Your sanctuary awaits...</p>
+                <h3>Bienvenue à la Maison</h3>
+                <p>Votre sanctuaire vous attend...</p>
             </div>
         </div>
     </div>
