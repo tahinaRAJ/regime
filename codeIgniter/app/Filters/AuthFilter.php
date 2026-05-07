@@ -19,7 +19,7 @@ pour accéder à cette page');
     }
     public function after(RequestInterface $request, ResponseInterface
     $response, $arguments = null)
-    {/home/rohan/Documents/work/L2/S4/INF205-SI/Notes/app/Filters/RoleFilter.php
+    {
         // Rien à faire après
     }
 }
