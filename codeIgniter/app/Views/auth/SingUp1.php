@@ -33,9 +33,9 @@
         <span class="gentle-error" id="emailError"></span>
     </div>
 
-    <div class="organic-field">
+    <div class="organic-field" style="z-index: 10; position: relative;">
         <div class="field-nature"></div>
-        <select id="genre" name="genre" required style="width:100%;padding:16px 20px;border-radius:20px;border:2px solid var(--sage-200);background:rgba(255,255,255,.85);">
+        <select id="genre" name="genre" required style="width:100%;padding:16px 20px;border-radius:20px;border:none;background:transparent;position:relative;z-index:2;color:#2e7d32;outline:none;font-size:16px;-webkit-appearance:none;appearance:none;cursor:pointer;">
             <option value="" <?= empty($data['genre']) ? 'selected' : '' ?>>Genre...</option>
             <option value="Homme" <?= ($data['genre'] ?? '') === 'Homme' ? 'selected' : '' ?>>Homme</option>
             <option value="Femme" <?= ($data['genre'] ?? '') === 'Femme' ? 'selected' : '' ?>>Femme</option>
