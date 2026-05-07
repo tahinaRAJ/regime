@@ -18,10 +18,12 @@
     - [ ] PorteMonaieModel
       - [ ] getSolde()
       - [ ] DeductSolde()
+      - [ ] addSoldeByCode()
+      - [ ] validerCode()
     - [ ] RegimeModel
       - [ ] predictActivityNecessaire()
       - [ ] predictRegimeNecessaire()
-      - [ ] 
+  
   - [ ] creation de controller
     - [ ] AuthController
       - [x] showLoginForm
@@ -35,8 +37,17 @@
         - [ ] prends les informations de l'user en session
         - [ ] appelle de predictActivityNecessaire() et predictRegimeNecessaire()
         - [ ] return en json pour l'ajax
+      - [ ] exporter resultat en PDF
+    - [ ] PorteMonaieController
+      - [ ] recharger avec code
+    - [ ] GoldController
+      - [ ] paiement option gold (une seule fois)
       
 # Frontend
 - [ ] trouver un template pour le login/sign up
 - [ ] integrer le template dans les views
+- [ ] affichage de l'imc dans le dashboard
 - [ ] creer la view de selection d'option et affichage de regime + sport necessaire
+- [ ] export PDF de la recommandation
+- [ ] page rechargement porte monnaie avec code
+- [ ] affichage prix normal vs prix gold (-15%)
