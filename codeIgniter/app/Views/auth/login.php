@@ -4,13 +4,13 @@
 
 <?php if (session()->getFlashdata('message')) : ?>
     <div class="gentle-error" style="display:block;margin-bottom:12px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);color:#166534;">
-        <?= esc(session()->getFlashdata('message')) ?>
+        <?= esc((string)session()->getFlashdata('message')) ?>
     </div>
 <?php endif; ?>
 
 <?php if (!empty($erreur)) : ?>
     <div class="gentle-error" style="display:block;margin-bottom:12px;">
-        <?= esc($erreur) ?>
+        <?= esc((string)$erreur) ?>
     </div>
 <?php endif; ?>
 
