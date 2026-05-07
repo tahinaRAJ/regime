@@ -45,7 +45,20 @@
                 <p> Devenir une meilleure version de soi</p>
             </div>
             
-            <form class="harmony-form" id="loginForm" novalidate>
+            <?php if (session()->getFlashdata('message')) : ?>
+                <div class="gentle-error" style="display:block;margin-bottom:12px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);color:#166534;">
+                    <?= esc(session()->getFlashdata('message')) ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!empty($erreur)) : ?>
+                <div class="gentle-error" style="display:block;margin-bottom:12px;">
+                    <?= esc($erreur) ?>
+                </div>
+            <?php endif; ?>
+
+            <form class="harmony-form" id="loginForm" method="post" action="/login" novalidate>
+                <?= csrf_field() ?>
                 <div class="organic-field">
                     <div class="field-nature"></div>
                     <input type="email" id="email" name="email" required autocomplete="email">
@@ -95,7 +108,7 @@
 
             <div class="nurture-signup">
                 <span>C'est votre premi ? </span>
-                <a href="#" class="growth-link">Commencer votre parcours</a>
+                <a href="/register" class="growth-link">Commencer votre parcours</a>
             </div>
 
             <div class="harmony-success" id="successMessage">
