@@ -14,10 +14,14 @@
   - [x] update Config/Filters.php
   - [ ] creation de model
     - [x] UserModel
+    - [ ] PaiementModel
     - [ ] PorteMonaieModel
+      - [ ] getSolde()
+      - [ ] DeductSolde()
     - [ ] RegimeModel
       - [ ] predictActivityNecessaire()
       - [ ] predictRegimeNecessaire()
+      - [ ] 
   - [ ] creation de controller
     - [ ] AuthController
       - [x] showLoginForm
@@ -31,7 +35,7 @@
         - [ ] prends les informations de l'user en session
         - [ ] appelle de predictActivityNecessaire() et predictRegimeNecessaire()
         - [ ] return en json pour l'ajax
-
+      
 # Frontend
 - [ ] trouver un template pour le login/sign up
 - [ ] integrer le template dans les views
