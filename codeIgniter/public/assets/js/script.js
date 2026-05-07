@@ -7,12 +7,12 @@ class EcoWellnessLoginForm extends FormUtils.LoginFormBase {
             hideOnSuccess: ['.natural-social', '.nurture-signup', '.balance-divider'],
             validators: {
                 email: (v) => {
-                    if (!v) return { isValid: false, message: 'Your email helps us connect with you mindfully' };
-                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return { isValid: false, message: 'Please share a valid email address' };
+                    if (!v) return { isValid: false, message: 'Vous avez besoin d\'une adresse email' };
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return { isValid: false, message: 'Veuillez partager une adresse email valide' };
                     return { isValid: true };
                 },
                 password: (v) => {
-                    if (!v) return { isValid: false, message: 'Your sanctuary needs a protective key' };
+                    if (!v) return { isValid: false, message: 'Vous avez besoin d\'un mot de passe' };
                     if (v.length < 6) return { isValid: false, message: 'Please choose a stronger protection (6+ characters)' };
                     return { isValid: true };
                 },

@@ -5,24 +5,24 @@
 class FormUtils {
     static validateEmail(value) {
         if (!value) {
-            return { isValid: false, message: 'Email address is required' };
+            return { isValid: false, message: 'Adresse Email est requise' };
         }
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
-            return { isValid: false, message: 'Please enter a valid email address' };
+            return { isValid: false, message: 'Veuillez entrer une adresse email valide' };
         }
         return { isValid: true };
     }
 
     static validatePassword(value) {
         if (!value) {
-            return { isValid: false, message: 'Password is required' };
+            return { isValid: false, message: 'Mot de passe est requis' };
         }
         if (value.length < 8) {
-            return { isValid: false, message: 'Password must be at least 8 characters long' };
+            return { isValid: false, message: 'Le mot de passe doit contenir au moins 8 caractères' };
         }
         if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(value)) {
-            return { isValid: false, message: 'Password must contain uppercase, lowercase, and number' };
+            return { isValid: false, message: 'Le mot de passe doit contenir des majuscules, des minuscules et des chiffres' };
         }
         return { isValid: true };
     }
@@ -71,7 +71,7 @@ class FormUtils {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 if (email === 'admin@demo.com' && password === 'wrongpassword') {
-                    reject(new Error('Invalid email or password'));
+                    reject(new Error('Adresse email ou mot de passe incorrect'));
                 } else {
                     resolve({ success: true, user: { email } });
                 }

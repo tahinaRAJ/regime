@@ -2,7 +2,16 @@
 
 <?= $this->section('content') ?>
 
-<form class="harmony-form" id="loginForm" novalidate>
+<form action="<?= base_url('auth/process_step1') ?>" method="post" class="harmony-form" id="loginForm" novalidate>    <div class="organic-field">
+        <div class="field-nature"></div>
+        <input type="text" id="name" name="name" required autocomplete="name">
+        <label for="name">Nom</label>
+        <div class="growth-indicator">
+            <div class="leaf-sprout"></div>
+        </div>
+        <span class="gentle-error" id="nameError"></span>
+    </div>
+
     <div class="organic-field">
         <div class="field-nature"></div>
         <input type="email" id="email" name="email" required autocomplete="email">
@@ -30,7 +39,7 @@
 
     <button type="submit" class="harmony-button">
         <div class="button-earth"></div>
-        <span class="button-text">Se connecter</span>
+        <span class="button-text">Suivant</span>
         <div class="button-growth">
             <div class="growing-circle circle-1"></div>
             <div class="growing-circle circle-2"></div>
@@ -51,8 +60,8 @@
 </div>
 
 <div class="nurture-signup">
-    <span>C'est votre première visite ? </span>
-    <a href="#" class="growth-link">Commencer votre parcours</a>
+    <span>Déjà un compte ? </span>
+    <a href="#" class="growth-link">Se connecter</a>
 </div>
 
 <div class="harmony-success" id="successMessage">
@@ -67,6 +76,5 @@
         </div>
     </div>
 </div>
-</div>
-</div>
+
 <?= $this->endSection() ?>

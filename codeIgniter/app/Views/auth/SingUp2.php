@@ -2,35 +2,30 @@
 
 <?= $this->section('content') ?>
 
-<form class="harmony-form" id="loginForm" novalidate>
+<form method="post" class="harmony-form" id="loginForm" novalidate>
     <div class="organic-field">
         <div class="field-nature"></div>
-        <input type="email" id="email" name="email" required autocomplete="email">
-        <label for="email">Adresse Email</label>
+        <input type="number" id="taille" name="taille" required autocomplete="taille">
+        <label for="taille">Taille (en cm)</label>
         <div class="growth-indicator">
             <div class="leaf-sprout"></div>
         </div>
-        <span class="gentle-error" id="emailError"></span>
+        <span class="gentle-error" id="tailleError"></span>
     </div>
 
     <div class="organic-field">
         <div class="field-nature"></div>
-        <input type="password" id="password" name="password" required autocomplete="current-password">
-        <label for="password">Mot de passe</label>
-        <button type="button" class="nature-toggle" id="passwordToggle" aria-label="Toggle password visibility">
-            <svg class="eye-visible" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M10 4c-4 0-7 3-8 6 1 3 4 6 8 6s7-3 8-6c-1-3-4-6-8-6zm0 10a4 4 0 110-8 4 4 0 010 8zm0-6a2 2 0 100 4 2 2 0 000-4z" fill="currentColor" />
-            </svg>
-            <svg class="eye-hidden" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M3 3l14 14M8.5 8.5a2 2 0 002.83 2.83m-.83-4.83a4 4 0 014 4M10 6C6 6 3 9 2 12c.5 1.5 2 3.5 4 4.5M10 14c4 0 7-3 8-6-.5-1.5-2-3.5-4-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-        </button>
-        <span class="gentle-error" id="passwordError"></span>
+        <input type="number" id="poids" name="poids" required autocomplete="poids">
+        <label for="poids">Poids (en kg)</label>
+        <div class="growth-indicator">
+            <div class="leaf-sprout"></div>
+        </div>
+        <span class="gentle-error" id="poidsError"></span>
     </div>
 
     <button type="submit" class="harmony-button">
         <div class="button-earth"></div>
-        <span class="button-text">Se connecter</span>
+        <span class="button-text">Confirmer</span>
         <div class="button-growth">
             <div class="growing-circle circle-1"></div>
             <div class="growing-circle circle-2"></div>
@@ -51,8 +46,8 @@
 </div>
 
 <div class="nurture-signup">
-    <span>C'est votre première visite ? </span>
-    <a href="#" class="growth-link">Commencer votre parcours</a>
+    <span>Déjà un compte ? </span>
+    <a href="#" class="growth-link">Se connecter</a>
 </div>
 
 <div class="harmony-success" id="successMessage">
@@ -67,6 +62,5 @@
         </div>
     </div>
 </div>
-</div>
-</div>
+
 <?= $this->endSection() ?>
