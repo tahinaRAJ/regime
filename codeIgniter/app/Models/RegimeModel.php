@@ -55,6 +55,16 @@ class RegimeModel extends Model
         return [];
     }
 
+    public function getRecommendationRegime(int $id){
+        if($id == 1){
+            return $this->getRegimesPourPerdrePoids(5);
+        } else if($id == 2){
+            return $this->getRegimesPourGagnerPoids(5);
+        } else {
+            return [];
+        }
+    }
+
     private function buildRegimeRecommendations(float $objectifPoidsKg, bool $isGain): array
     {
         if ($objectifPoidsKg <= 0) {
