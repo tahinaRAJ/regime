@@ -29,7 +29,7 @@
       - [x] showLoginForm
       - [x] login
       - [x] logout
-      - [ ] createAccount
+      - [x] createAccount
     - [ ] UserController
       - [ ] showProfil (choix et info perso)
     - [ ] RegimeController
