@@ -1,0 +1,25 @@
+choix:
+
+perdre du poids (réduiction):
+-on retourne les regime where le poids < 0 et égal à 0-le poids à perdre choisi
+ (perdre 20 kg : regime 5kg 4 jours)
+
+
+
+
+gagner du poids (augmentation):
+-on retourne les regime where le gain de poids > 0 et égal le poids à atteindre - le poids initial
+ (perdre 20 kg : regime 5kg 4 jours)
+
+
+
+
+
+
+atteindre un imc idéal:
+if imc actuel != imc idéal
+    diffPoids = imc actuel * taille² - imc ideal * taille²
+    if diffPoids > 0
+    gagner du poids (diffPoids)
+    else
+    perdre du poids (diffPoids)

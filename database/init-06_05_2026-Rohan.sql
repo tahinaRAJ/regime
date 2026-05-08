@@ -25,17 +25,14 @@ CREATE TABLE regime (
     nom VARCHAR(255) NOT NULL,
     description TEXT,
     prixJournalier DECIMAL(10, 2) NOT NULL, -- Prix de base
-    poidsInfluence DECIMAL(10, 2) NOT NULL, -- Ex: -2.5 (kg) ou +1.5 (kg)
-    dureeInfluence INT,            
+    poidsInfluencefood DECIMAL(10, 2) NOT NULL, -- Ex: -2.5 (kg) ou +1.5 (kg)
+    dureeInfluencefood INT,    
+    activite VARCHAR(255),
+    poidsInfluenceActivite DECIMAL(10, 2) NOT NULL,
+    dureeInfluenceActivite INT NOT NULL,
     pourcentageViande DECIMAL(5, 2),
     pourcentagePoisson DECIMAL(5, 2),
     pourcentageVolaille DECIMAL(5, 2)
-);
-CREATE TABLE activity (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(255) NOT NULL,
-    description TEXT,
-    poidsInfluence DECIMAL(10, 2) NOT NULL
 );
 
 CREATE TABLE objectif (
@@ -82,13 +79,21 @@ CREATE TABLE choixUser(
     idUser INT NOT NULL,
     idObjectif INT NOT NULL,
     idRegime INT NOT NULL,
-    idActivity INT NOT NULL,
+    durée INT NOT NULL, -- Durée en jours
     FOREIGN KEY (idUser) REFERENCES user (id),
     FOREIGN KEY (idObjectif) REFERENCES objectif (id),
     FOREIGN KEY (idRegime) REFERENCES regime (id),
-    FOREIGN KEY (idActivity) REFERENCES activity (id),
     dateChoix DATETIME NOT NULL
 );
 
 ALTER TABLE user
 ADD COLUMN role ENUM('client', 'admin') NOT NULL DEFAULT 'client';
+
+
+Insert into objectif (nom) values ('Perdre du poids');
+Insert into objectif (nom) values ('Gagner du poids');
+Insert into objectif (nom) values ('Atteindre un imc ideal');
+
+/* standard et gold sont les deux options disponibles pour les clients */
+Insert into option (nom) values ('Standard');
+Insert into option (nom) values ('Gold');
