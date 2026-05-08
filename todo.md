@@ -46,16 +46,18 @@
 # Frontend
 - [x] trouver un template pour le login/sign up
 - [x] integrer le template dans les views
-- [ ] modification du template
-  - [ ] formulaire d'inscription I
-    - [ ] nom
-    - [ ] mail
-    - [ ] genre
-  - [ ] formulaire d'inscription II
-    - [ ] taille
-    - [ ] poids
+- [x] modification du template
+  - [x] formulaire d'inscription I
+    - [x] nom
+    - [x] mail
+    - [x] genre
+  - [x] formulaire d'inscription II
+    - [x] taille
+    - [x] poids
 - [ ] affichage de l'imc dans le dashboard
 - [ ] creer la view de selection d'option et affichage de regime + sport necessaire
 - [ ] export PDF de la recommandation
 - [ ] page rechargement porte monnaie avec code
 - [ ] affichage prix normal vs prix gold (-15%)
+- [ ] création des controllers pour les cruds
+- [ ] création d'une page de modification pour l'admin
