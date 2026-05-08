@@ -4,8 +4,8 @@
 - [ ] insertion des donnees de test
 
 # Backend
-- [ ] login et inscription
-  - [ ] creation de model
+- [x] login et inscription
+  - [x] creation de model
     - [x] User
     - [x] Caracteristique
     - [x] Portemonaie
