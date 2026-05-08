@@ -25,17 +25,14 @@ CREATE TABLE regime (
     nom VARCHAR(255) NOT NULL,
     description TEXT,
     prixJournalier DECIMAL(10, 2) NOT NULL, -- Prix de base
-    poidsInfluence DECIMAL(10, 2) NOT NULL, -- Ex: -2.5 (kg) ou +1.5 (kg)
-    dureeInfluence INT,            
+    poidsInfluencefood DECIMAL(10, 2) NOT NULL, -- Ex: -2.5 (kg) ou +1.5 (kg)
+    dureeInfluencefood INT,    
+    activite VARCHAR(255),
+    poidsInfluenceActivite DECIMAL(10, 2) NOT NULL,
+    dureeInfluenceActivite INT NOT NULL,
     pourcentageViande DECIMAL(5, 2),
     pourcentagePoisson DECIMAL(5, 2),
     pourcentageVolaille DECIMAL(5, 2)
-);
-CREATE TABLE activity (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(255) NOT NULL,
-    description TEXT,
-    poidsInfluence DECIMAL(10, 2) NOT NULL
 );
 
 CREATE TABLE objectif (
