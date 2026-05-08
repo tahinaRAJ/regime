@@ -55,6 +55,14 @@ class RegimeModel extends Model
         return [];
     }
 
+    public function calculIMC(float $poidsKg, float $tailleMetre): float
+    {
+        if ($tailleMetre <= 0) {
+            throw new \InvalidArgumentException("La taille doit être supérieure à zéro.");
+        }
+        return round($poidsKg / ($tailleMetre ** 2), 2);
+    }
+
     public function getRecommendationRegime(int $id){
         if($id == 1){
             return $this->getRegimesPourPerdrePoids(5);

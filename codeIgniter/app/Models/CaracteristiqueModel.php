@@ -16,4 +16,11 @@ class CaracteristiqueModel extends Model
         'height',
         'weight'
     ];
+
+    public function getCaracteristiqueByUserId(int $idUser)
+    {
+        return $this->where('idUser', $idUser)->first();
+    }
+
+    
 }
