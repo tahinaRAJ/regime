@@ -90,6 +90,10 @@ ALTER TABLE user
 ADD COLUMN role ENUM('client', 'admin') NOT NULL DEFAULT 'client';
 
 
-Insert into option (nom) values ('Perdre du poids');
-Insert into option (nom) values ('Gagner du poids');
-Insert into option (nom) values ('Atteindre un imc ideal');
+Insert into objectif (nom) values ('Perdre du poids');
+Insert into objectif (nom) values ('Gagner du poids');
+Insert into objectif (nom) values ('Atteindre un imc ideal');
+
+/* standard et gold sont les deux options disponibles pour les clients */
+Insert into option (nom) values ('Standard');
+Insert into option (nom) values ('Gold');
