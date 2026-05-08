@@ -65,10 +65,20 @@ class RegimeModel extends Model
         $regimes = $this->where('poidsInfluencefood ' . $operator, 0)->findAll();
         $recommendations = [];
 
+        $ActiviteModel = new ActiviteModel();
         foreach ($regimes as $regime) {
-            $influence = (float) $regime['poidsInfluencefood'];
-            $duree = (int) ($regime['dureeInfluencefood'] ?? 0);
-            $prixJournalier = (float) ($regime['prixJournalier'] ?? 0);
+            $activite = $ActiviteModel->find($regime['idActivite']);
+            if ($activite) {
+                $regime['nomActivite'] = $activite['nom'];
+                $regime['poidsInfluenceActivite'] = $activite['poidsInfluenceActivite'];
+            } else {
+                $regime['nomActivite'] = 'Aucune activité associée';
+                $regime['poidsInfluenceActivite'] = 0.0;
+            }
+            
+            $influence = (float) $regime['poidsInfluencefood'] + (float) $regime['poidsInfluenceActivite'];
+            $duree = (int) ($regime['dureeInfluencefood']);
+            $prixJournalier = (float) ($regime['prixJournalier']);
 
             if ($influence == 0.0 || $duree <= 0) {
                 continue;
