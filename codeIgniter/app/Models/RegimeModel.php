@@ -14,10 +14,15 @@ class RegimeModel extends Model
         'nom',
         'description',
         'prixJournalier',
-        'poidsInfluence',
-        'dureeInfluence',
+        'poidsInfluencefood',
+        'dureeInfluencefood',
+        'poidsInfluenceActivite',
+        'dureeInfluenceActivite',
         'pourcentageViande',
         'pourcentagePoisson',
         'pourcentageVolaille'
     ];
+
+
+    
 }

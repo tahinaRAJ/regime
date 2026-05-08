@@ -79,13 +79,17 @@ CREATE TABLE choixUser(
     idUser INT NOT NULL,
     idObjectif INT NOT NULL,
     idRegime INT NOT NULL,
-    idActivity INT NOT NULL,
+    durée INT NOT NULL, -- Durée en jours
     FOREIGN KEY (idUser) REFERENCES user (id),
     FOREIGN KEY (idObjectif) REFERENCES objectif (id),
     FOREIGN KEY (idRegime) REFERENCES regime (id),
-    FOREIGN KEY (idActivity) REFERENCES activity (id),
     dateChoix DATETIME NOT NULL
 );
 
 ALTER TABLE user
 ADD COLUMN role ENUM('client', 'admin') NOT NULL DEFAULT 'client';
+
+
+Insert into option (nom) values ('Perdre du poids');
+Insert into option (nom) values ('Gagner du poids');
+Insert into option (nom) values ('Atteindre un imc ideal');
