@@ -51,7 +51,8 @@ class PorteMonaieModel extends Model
         $code = $this->db->table('code')
             ->where('nom', $nomCode)
             ->where('isValid', 1)
-            ->first();
+            ->get()
+            ->getRow();
 
         if (!$code) {
             return null;

@@ -14,3 +14,6 @@ $routes->get('/register/health', 'AuthController::showHealthForm');
 $routes->post('/register/health', 'AuthController::createAccount');
 $routes->get('/logout', 'AuthController::logout');
 
+$routes->get('/portemonaie/recharge', 'PorteMonaieController::showRechargeForm');
+$routes->post('/portemonaie/recharge', 'PorteMonaieController::rechargeByCode');
+$routes->get('/api/solde', 'PorteMonaieController::getSoldeAjax');
