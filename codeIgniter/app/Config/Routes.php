@@ -17,3 +17,12 @@ $routes->get('/logout', 'AuthController::logout');
 $routes->get('/portemonaie/recharge', 'PorteMonaieController::showRechargeForm');
 $routes->post('/portemonaie/recharge', 'PorteMonaieController::rechargeByCode');
 $routes->get('/api/solde', 'PorteMonaieController::getSoldeAjax');
+
+$routes->get('/regime', 'RegimeController::index');
+$routes->get('/regime/objectifs', 'RegimeController::getObjectifs');
+
+$routes->post('/regime/list', 'RegimeController::showRegimeList');
+$routes->get('/regime/list', 'RegimeController::showRegimeList');
+$routes->post('/regime/recommendations', 'RegimeController::showRegimeRecommendations');
+$routes->get('/regime/imc', 'RegimeController::showIMCPage');
+$routes->get('/regime/recommendations/ajax', 'RegimeController::getRecommendationsAjax');

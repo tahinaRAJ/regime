@@ -18,7 +18,7 @@
     <?= csrf_field() ?>
     <div class="organic-field">
         <div class="field-nature"></div>
-        <input type="email" id="email" name="email" required autocomplete="email">
+        <input type="email" id="email" name="email" value="thomas@test.fr" required autocomplete="email">
         <label for="email">Adresse Email</label>
         <div class="growth-indicator">
             <div class="leaf-sprout"></div>
@@ -28,7 +28,7 @@
 
     <div class="organic-field">
         <div class="field-nature"></div>
-        <input type="password" id="password" name="password" required autocomplete="current-password">
+        <input type="password" id="password" name="password" value="Client@9012" required autocomplete="current-password">
         <label for="password">Mot de passe</label>
         <button type="button" class="nature-toggle" id="passwordToggle" aria-label="Toggle password visibility">
             <svg class="eye-visible" width="20" height="20" viewBox="0 0 20 20" fill="none">
