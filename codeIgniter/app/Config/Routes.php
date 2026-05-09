@@ -17,3 +17,6 @@ $routes->get('/logout', 'AuthController::logout');
 $routes->get('/portemonaie/recharge', 'PorteMonaieController::showRechargeForm');
 $routes->post('/portemonaie/recharge', 'PorteMonaieController::rechargeByCode');
 $routes->get('/api/solde', 'PorteMonaieController::getSoldeAjax');
+
+$routes->get('/regime', 'RegimeController::index');
+$routes->get('/regime/objectifs', 'RegimeController::getObjectifs');

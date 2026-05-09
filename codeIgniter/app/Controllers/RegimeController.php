@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\RegimeModel;
+use App\Models\ObjectifModel;
 use App\Models\CaracteristiqueModel;
 
 class RegimeController extends BaseController
@@ -37,6 +38,22 @@ class RegimeController extends BaseController
             return;
         }
         $regimes = $model->getRecommendationRegime($Idoption);
+        if ($this->request->isAJAX()) {
+            return $this->response->setJSON($regimes);
+        }
+
         return view('regime/list', ['regimes' => $regimes]);
+    }
+
+    public function index()
+    {
+        return view('regime/index');
+    }
+
+    public function getObjectifs()
+    {
+        $model = new ObjectifModel();
+        $objectifs = $model->getObjectifs();
+        return $this->response->setJSON($objectifs);
     }
 }
