@@ -26,3 +26,20 @@ $routes->get('/regime/list', 'RegimeController::showRegimeList');
 $routes->post('/regime/recommendations', 'RegimeController::showRegimeRecommendations');
 $routes->get('/regime/imc', 'RegimeController::showIMCPage');
 $routes->get('/regime/recommendations/ajax', 'RegimeController::getRecommendationsAjax');
+
+$routes->group('admin', ['filter' => 'role:admin'], function($routes){
+	$routes->get('', 'Admin\\DashboardController::index');
+	$routes->get('activite', 'Admin\\ActiviteController::index');
+	$routes->get('activite/create', 'Admin\\ActiviteController::create');
+	$routes->post('activite/store', 'Admin\\ActiviteController::store');
+	$routes->get('activite/edit/(:num)', 'Admin\\ActiviteController::edit/$1');
+	$routes->post('activite/update/(:num)', 'Admin\\ActiviteController::update/$1');
+	$routes->post('activite/delete/(:num)', 'Admin\\ActiviteController::delete/$1');
+
+	$routes->get('regime', 'Admin\\RegimeAdminController::index');
+	$routes->get('regime/create', 'Admin\\RegimeAdminController::create');
+	$routes->post('regime/store', 'Admin\\RegimeAdminController::store');
+	$routes->get('regime/edit/(:num)', 'Admin\\RegimeAdminController::edit/$1');
+	$routes->post('regime/update/(:num)', 'Admin\\RegimeAdminController::update/$1');
+	$routes->post('regime/delete/(:num)', 'Admin\\RegimeAdminController::delete/$1');
+});

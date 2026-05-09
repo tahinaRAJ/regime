@@ -144,6 +144,10 @@ class AuthController extends BaseController
             'role'  => $user['role']
         ]);
 
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return redirect()->to('/admin')->with('message', 'Connexion réussie');
+        }
+
         return redirect()->to('/regime')->with('message', 'Connexion réussie');
     }
     public function logout()
