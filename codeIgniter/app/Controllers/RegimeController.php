@@ -10,7 +10,7 @@ class RegimeController extends BaseController
 {
     public function showIMCform()
     {
-        return view('regime/form');
+        return redirect()->to('/regime/imc');
     }
 
     public function showRegimeRecommendations()
@@ -32,12 +32,13 @@ class RegimeController extends BaseController
     public function showRegimeList()
     {
         $model = new RegimeModel();
-        $Idoption = $this->request->getPost('Idoption');
-        if ($Idoption >= 3) {
-            $this->showIMCform();
-            return;
+        $Idoption = $this->request->getVar('Idoption');
+
+        if ($Idoption !== null && intval($Idoption) >= 3) {
+            return $this->showIMCform();
         }
-        $regimes = $model->getRecommendationRegime($Idoption);
+
+        $regimes = $model->getRecommendationRegime(intval($Idoption));
         if ($this->request->isAJAX()) {
             return $this->response->setJSON($regimes);
         }
@@ -50,10 +51,63 @@ class RegimeController extends BaseController
         return view('regime/index');
     }
 
+    public function showIMCPage()
+    {
+        try {
+            $userId = session()->get('user_id');
+            $imcActuel = null;
+            if ($userId) {
+                $caracteristiqueModel = new CaracteristiqueModel();
+                $caracteristique = $caracteristiqueModel->getCaracteristiqueByUserId($userId);
+                if ($caracteristique && isset($caracteristique['weight']) && isset($caracteristique['height'])) {
+                    $weight = (float) $caracteristique['weight'];
+                    $height = ((float) $caracteristique['height']) / 100;
+                    $regimeModel = new RegimeModel();
+                    $imcActuel = $regimeModel->calculIMC($weight, $height);
+                }
+            }
+            return view('regime/imc', ['imc_actuel' => $imcActuel]);
+        } catch (\Throwable $e) {
+            log_message('error', 'showIMCPage: ' . $e->getMessage());
+            return view('regime/imc', ['imc_actuel' => null]);
+        }
+    }
+
+    public function getRecommendationsAjax()
+    {
+        $imcIdeal = $this->request->getGet('imc_ideal');
+        if (!$imcIdeal) {
+            return $this->response->setJSON([]);
+        }
+        $model = new RegimeModel();
+        $userId = session()->get('user_id');
+        if (!$userId) {
+            log_message('warning', 'getRecommendationsAjax: no user in session');
+            return $this->response->setStatusCode(401)->setJSON(['error' => 'Utilisateur non connecté']);
+        }
+
+        $caracteristiqueModel = new CaracteristiqueModel();
+        $caracteristique = $caracteristiqueModel->getCaracteristiqueByUserId((int) $userId);
+        if (!$caracteristique) {
+            return $this->response->setJSON([]);
+        }
+        $weight = (float) $caracteristique['weight'];
+        $height = ((float) $caracteristique['height']) / 100;
+        $imcActuel = $model->calculIMC($weight, $height);
+
+        $regimes = $model->getRegimesPourObjectifImc($imcActuel, (float)$imcIdeal, $height);
+        return $this->response->setJSON($regimes);
+    }
+
     public function getObjectifs()
     {
-        $model = new ObjectifModel();
-        $objectifs = $model->getObjectifs();
-        return $this->response->setJSON($objectifs);
+        try {
+            $model = new \App\Models\ObjectifModel();
+            $objectifs = $model->getObjectifs();
+            return $this->response->setJSON($objectifs);
+        } catch (\Throwable $e) {
+            log_message('error', 'getObjectifs failed: ' . $e->getMessage());
+            return $this->response->setJSON([]);
+        }
     }
 }

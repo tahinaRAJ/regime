@@ -90,24 +90,33 @@
   async function onChoiceClick(id){
     if(!id) return;
     const numericId = parseInt(id,10);
-    if(numericId >= 3){
-      regimesArea.innerHTML = '<div class="placeholder">Cet objectif nécessite le formulaire IMC. Veuillez remplir votre IMC.</div>';
-      clearForecast();
+
+    if (numericId >= 3) {
+      window.location.href = '/regime/imc';
       return;
     }
 
     regimesArea.innerHTML = '<div class="placeholder">Chargement...</div>';
     try{
-      const res = await fetch('/regime/list', {
-        method: 'POST',
-        headers: { 'Content-Type':'application/x-www-form-urlencoded' },
-        body: 'Idoption=' + encodeURIComponent(numericId)
+      const headers = {
+        'X-Requested-With': 'XMLHttpRequest'
+      };
+      const res = await fetch('/regime/list?Idoption=' + encodeURIComponent(numericId), {
+        method: 'GET',
+        headers: headers
       });
 
       const ctype = res.headers.get('content-type') || '';
       if(ctype.includes('application/json')){
         const data = await res.json();
         renderRegimes(data);
+        return;
+      }
+
+      if(ctype.includes('text/html')){
+        const html = await res.text();
+        regimesArea.innerHTML = html;
+        clearForecast();
         return;
       }
 
