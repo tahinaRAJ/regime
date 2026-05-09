@@ -144,7 +144,7 @@ class AuthController extends BaseController
             'role'  => $user['role']
         ]);
 
-        return redirect()->to('/index')->with('message', 'Connexion réussie');
+        return redirect()->to('/regime')->with('message', 'Connexion réussie');
     }
     public function logout()
     {
