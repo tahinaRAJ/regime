@@ -31,7 +31,7 @@ CREATE TABLE regime (
     poidsInfluenceActivite DECIMAL(10, 2) NOT NULL,
     pourcentageViande DECIMAL(5, 2),
     pourcentagePoisson DECIMAL(5, 2),
-    pourcentageVolaille DECIMAL(5, 2) FOREIGN KEY (idActivite) REFERENCES activite (id)
+    pourcentageVolaille DECIMAL(5, 2), FOREIGN KEY (idActivite) REFERENCES activite (id)
 );
 
 CREATE TABLE objectif (
