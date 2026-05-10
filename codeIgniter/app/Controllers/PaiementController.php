@@ -13,12 +13,14 @@ class PaiementController extends BaseController
     public PorteMonaieModel $porteMonaieModel;
     public RegimeModel $regimeModel;
     public OptionModel $optionModel;
+    protected $db;
 
     public function __construct()
     {
         $this->porteMonaieModel = new PorteMonaieModel();
         $this->regimeModel = new RegimeModel();
         $this->optionModel = new OptionModel();
+        $this->db = \Config\Database::connect();
     }
 
     public function getLoggedUser(): ?array
