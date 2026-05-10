@@ -6,14 +6,14 @@ use App\Models\PorteMonaieModel;
 
 class PorteMonaieController extends BaseController
 {
-    protected $porteMonaieModel;
+    public $porteMonaieModel;
 
     public function __construct()
     {
         $this->porteMonaieModel = new PorteMonaieModel();
     }
 
-    private function getLoggedUser(): ?array
+    public function getLoggedUser(): ?array
     {
         $user = session()->get('user');
 

@@ -8,11 +8,11 @@ use App\Models\RegimeModel;
 
 class PaiementController extends BaseController
 {
-    private const GOLD_PRICE = 25000;
+    public const GOLD_PRICE = 25000;
 
-    protected PorteMonaieModel $porteMonaieModel;
-    protected RegimeModel $regimeModel;
-    protected OptionModel $optionModel;
+    public PorteMonaieModel $porteMonaieModel;
+    public RegimeModel $regimeModel;
+    public OptionModel $optionModel;
 
     public function __construct()
     {
@@ -21,21 +21,21 @@ class PaiementController extends BaseController
         $this->optionModel = new OptionModel();
     }
 
-    private function getLoggedUser(): ?array
+    public function getLoggedUser(): ?array
     {
         $user = session()->get('user');
 
         return is_array($user) ? $user : null;
     }
 
-    private function getGoldOptionId(): ?int
+    public function getGoldOptionId(): ?int
     {
         $option = $this->optionModel->where('nom', 'Gold')->first();
 
         return $option['id'] ?? null;
     }
 
-    private function userHasGold(int $userId): bool
+    public function userHasGold(int $userId): bool
     {
         $goldOptionId = $this->getGoldOptionId();
         if (!$goldOptionId) {
@@ -51,7 +51,7 @@ class PaiementController extends BaseController
         return !empty($exists);
     }
 
-    private function goldMultiplier(int $userId): float
+    public function goldMultiplier(int $userId): float
     {
         return $this->userHasGold($userId) ? 0.85 : 1.0;
     }

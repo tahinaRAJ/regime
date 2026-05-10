@@ -8,6 +8,17 @@ use App\Models\CaracteristiqueModel;
 
 class RegimeController extends BaseController
 {
+    public function getLoggedUserId(): ?int
+    {
+        $user = session()->get('user');
+
+        if (!is_array($user) || empty($user['id'])) {
+            return null;
+        }
+
+        return (int) $user['id'];
+    }
+
     public function showIMCform()
     {
         return redirect()->to('/regime/imc');
@@ -17,7 +28,10 @@ class RegimeController extends BaseController
     {
         $model = new RegimeModel();
 
-        $userId = session()->get('user_id');
+        $userId = $this->getLoggedUserId();
+        if (!$userId) {
+            return redirect()->to('/login');
+        }
         $caracteristiqueModel = new CaracteristiqueModel();
         $caracteristique = $caracteristiqueModel->getCaracteristiqueByUserId($userId);
         $weight = $caracteristique['weight'];
@@ -54,7 +68,7 @@ class RegimeController extends BaseController
     public function showIMCPage()
     {
         try {
-            $userId = session()->get('user_id');
+            $userId = $this->getLoggedUserId();
             $imcActuel = null;
             if ($userId) {
                 $caracteristiqueModel = new CaracteristiqueModel();
@@ -80,7 +94,7 @@ class RegimeController extends BaseController
             return $this->response->setJSON([]);
         }
         $model = new RegimeModel();
-        $userId = session()->get('user_id');
+        $userId = $this->getLoggedUserId();
         if (!$userId) {
             log_message('warning', 'getRecommendationsAjax: no user in session');
             return $this->response->setStatusCode(401)->setJSON(['error' => 'Utilisateur non connecté']);
