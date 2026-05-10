@@ -4,4 +4,4 @@ fix la navigation dans le site (admin tokony afaka manao zavatra vitan client ko
 pour le crud
     regime
         il faut un dropdown d'activite pour la creation ou l'update
-compte admin no tokony default value fa tsy client
+compte admin doit etre le default value pas le client

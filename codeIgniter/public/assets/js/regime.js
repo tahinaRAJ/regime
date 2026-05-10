@@ -28,7 +28,7 @@
     });
   }
 
-  function renderRegimes(regimes){
+  function renderRegimes(regimes, objectiveId){
     regimesArea.innerHTML = '';
     if(!regimes || regimes.length === 0){
       regimesArea.innerHTML = '<div class="placeholder">Aucun régime trouvé pour cet objectif.</div>';
@@ -46,11 +46,12 @@
       const isGain = variation > 0;
       const jours = r.joursEstimes ?? r.jours ?? r.joursEstimes ?? '-';
       const cout = r.coutEstime ?? r.cout ?? r.coutEstime ?? '-';
+      const detailHref = `/paiement/regime/${r.id}${objectiveId ? `?objectif=${encodeURIComponent(objectiveId)}` : ''}`;
 
       card.innerHTML = `<h4>${nom}</h4>
         <p>${desc}</p>
         <div class="regime-meta">Variation par cycle: <strong>${variation > 0 ? '+' : ''}${variation} kg</strong> · Durée: <strong>${jours} jours</strong></div>
-        <a class="see-more" href="#">Voir plus</a>`;
+        <a class="see-more" href="${detailHref}">Voir plus</a>`;
 
       card.addEventListener('click', ()=>{
         forecastWeight.textContent = (isGain ? '+' : '-') + targetKg;
@@ -113,7 +114,7 @@
       const ctype = res.headers.get('content-type') || '';
       if(ctype.includes('application/json')){
         const data = await res.json();
-        renderRegimes(data);
+        renderRegimes(data, numericId);
         return;
       }
 
