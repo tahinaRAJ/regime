@@ -1,7 +1,4 @@
 recommendation de regime pour imc ideal
 fix the overall design (i tried but well)
 fix la navigation dans le site (admin tokony afaka manao zavatra vitan client ko)
-pour le crud
-    regime
-        il faut un dropdown d'activite pour la creation ou l'update
 compte admin doit etre le default value pas le client
