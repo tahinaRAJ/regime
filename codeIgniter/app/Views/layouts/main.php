@@ -20,6 +20,9 @@
       <div class="site-title">MonNouveauMoi</div>
       <div class="nav-links">
         <?php if (session()->get('user')): ?>
+          <a href="<?= site_url('/regime') ?>" style="color:#fff;text-decoration:none">Régime</a> &nbsp; | &nbsp;
+          <a href="<?= site_url('/portemonaie/recharge') ?>" style="color:#fff;text-decoration:none">Porte-monnaie</a> &nbsp; | &nbsp;
+          <a href="<?= site_url('/paiement/gold') ?>" style="color:#fff;text-decoration:none">Gold</a> &nbsp; | &nbsp;
           <?php if (session()->get('user')['role'] === 'admin'): ?>
             <a href="<?= site_url('/admin') ?>" style="color:#fff;text-decoration:none">Dashboard</a> &nbsp; | &nbsp; 
             <a href="<?= site_url('/admin/regime') ?>" style="color:#fff;text-decoration:none">Régimes</a> &nbsp; | &nbsp; 
