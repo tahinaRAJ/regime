@@ -36,6 +36,16 @@
                 </div>
 
                 <div class="form-row">
+                    <label>Activité Associée</label>
+                    <select name="idActivite" required>
+                        <option value="">Sélectionnez une activité</option>
+                        <?php foreach($activites as $activite): ?>
+                            <option value="<?= esc($activite['id']) ?>" <?= set_select('idActivite', $activite['id']) ?>><?= esc($activite['nom']) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <div class="form-row">
                     <label>% Viande</label>
                     <input type="number" step="0.01" name="pourcentageViande" value="<?= set_value('pourcentageViande') ?>" />
                 </div>

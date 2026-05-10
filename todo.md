@@ -1,7 +1,7 @@
 # Base
 - [x] creation de la base
 - [x] creation des tables
-- [ ] insertion des donnees de test
+- [x] insertion des donnees de test
 
 # Backend
 - [x] login et inscription
