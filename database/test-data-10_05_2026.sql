@@ -6,13 +6,13 @@ INSERT INTO activite (nom, poidsInfluenceActivite) VALUES
 ('Yoga', -0.10);
 
 -- Insertion des régimes
-INSERT INTO regime (nom, description, prixJournalier, poidsInfluencefood, dureeInfluencefood, idActivite, poidsInfluenceActivite, pourcentageViande, pourcentagePoisson, pourcentageVolaille) VALUES 
-('Régime Minceur Extrême', 'Idéal pour une perte de poids rapide', 15.50, -1.50, 7, 1, -0.50, 20.00, 50.00, 30.00),
-('Régime Prise de Masse', 'Riche en protéines pour les sportifs', 22.00, 2.00, 7, 2, 0.80, 50.00, 20.00, 30.00),
-('Régime Équilibré', 'Maintien et bien-être quotidien', 12.00, 0.00, 7, 3, -0.10, 33.33, 33.33, 33.34);
-INSERT INTO regime (nom, description, prixJournalier, poidsInfluencefood, dureeInfluencefood, idActivite, poidsInfluenceActivite, pourcentageViande, pourcentagePoisson, pourcentageVolaille) VALUES 
-('Régime Low Carb Minceur', 'Réduction des glucides pour affiner la silhouette', 18.00, -1.20, 7, 1, -0.50, 25.00, 45.00, 30.00),
-('Régime Hyperprotéiné Force', 'Optimisation musculaire et récupération', 25.50, 1.80, 7, 2, 0.80, 55.00, 15.00, 30.00);
+INSERT INTO regime (nom, description, prixJournalier, poidsInfluencefood, dureeInfluencefood, idActivite, pourcentageViande, pourcentagePoisson, pourcentageVolaille) VALUES 
+('Régime Minceur Extrême', 'Idéal pour une perte de poids rapide', 15.50, -1.50, 7, 1, 20.00, 50.00, 30.00),
+('Régime Prise de Masse', 'Riche en protéines pour les sportifs', 22.00, 2.00, 7, 2, 50.00, 20.00, 30.00),
+('Régime Équilibré', 'Maintien et bien-être quotidien', 12.00, 0.00, 7, 3, 33.33, 33.33, 33.34);
+INSERT INTO regime (nom, description, prixJournalier, poidsInfluencefood, dureeInfluencefood, idActivite, pourcentageViande, pourcentagePoisson, pourcentageVolaille) VALUES 
+('Régime Low Carb Minceur', 'Réduction des glucides pour affiner la silhouette', 18.00, -1.20, 7, 1, 25.00, 45.00, 30.00),
+('Régime Hyperprotéiné Force', 'Optimisation musculaire et récupération', 25.50, 1.80, 7, 2, 55.00, 15.00, 30.00);
 -- Insertion des options pour les utilisateurs (basé sur Jean, Marie, Thomas)
 INSERT INTO userOption (idUser, idOption) VALUES 
 (1, 1), -- Jean a pris le coaching

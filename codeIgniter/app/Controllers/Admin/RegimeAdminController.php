@@ -32,17 +32,16 @@ class RegimeAdminController extends BaseController
         $prix = $this->request->getPost('prixJournalier');
         $poidsFood = $this->request->getPost('poidsInfluencefood');
         $dureeFood = $this->request->getPost('dureeInfluencefood');
-        $poidsActivite = $this->request->getPost('poidsInfluenceActivite');
-        $dureeActivite = $this->request->getPost('dureeInfluenceActivite');
+        $idActivite = $this->request->getPost('idActivite');
         $pourcViande = $this->request->getPost('pourcentageViande') ?? 0;
         $pourcPoisson = $this->request->getPost('pourcentagePoisson') ?? 0;
         $pourcVolaille = $this->request->getPost('pourcentageVolaille') ?? 0;
 
-        if ($nom === '' || $prix === '' || $poidsFood === '' || $dureeFood === '') {
+        if ($nom === '' || $prix === '' || $poidsFood === '' || $dureeFood === '' || $idActivite === '') {
             return redirect()->back()->with('erreur', 'Veuillez remplir les champs requis')->withInput();
         }
 
-        $this->regimeModel->createRegime($nom, $description, (float) $prix, (float) $poidsFood, (int) $dureeFood, (float) $poidsActivite, (int) $dureeActivite, (float) $pourcViande, (float) $pourcPoisson, (float) $pourcVolaille);
+        $this->regimeModel->createRegime($nom, $description, (float) $prix, (float) $poidsFood, (int) $dureeFood, (int) $idActivite, (float) $pourcViande, (float) $pourcPoisson, (float) $pourcVolaille);
 
         return redirect()->to('/admin/regime')->with('success', 'R\u00e9gime cr\u00e9\u00e9');
     }
@@ -63,17 +62,16 @@ class RegimeAdminController extends BaseController
         $prix = $this->request->getPost('prixJournalier');
         $poidsFood = $this->request->getPost('poidsInfluencefood');
         $dureeFood = $this->request->getPost('dureeInfluencefood');
-        $poidsActivite = $this->request->getPost('poidsInfluenceActivite');
-        $dureeActivite = $this->request->getPost('dureeInfluenceActivite');
+        $idActivite = $this->request->getPost('idActivite');
         $pourcViande = $this->request->getPost('pourcentageViande') ?? 0;
         $pourcPoisson = $this->request->getPost('pourcentagePoisson') ?? 0;
         $pourcVolaille = $this->request->getPost('pourcentageVolaille') ?? 0;
 
-        if ($nom === '' || $prix === '' || $poidsFood === '' || $dureeFood === '') {
+        if ($nom === '' || $prix === '' || $poidsFood === '' || $dureeFood === '' || $idActivite === '') {
             return redirect()->back()->with('erreur', 'Veuillez remplir les champs requis')->withInput();
         }
 
-        $this->regimeModel->updateRegime((int) $id, $nom, $description, (float) $prix, (float) $poidsFood, (int) $dureeFood, (float) $poidsActivite, (int) $dureeActivite, (float) $pourcViande, (float) $pourcPoisson, (float) $pourcVolaille);
+        $this->regimeModel->updateRegime((int) $id, $nom, $description, (float) $prix, (float) $poidsFood, (int) $dureeFood, (int) $idActivite, (float) $pourcViande, (float) $pourcPoisson, (float) $pourcVolaille);
 
         return redirect()->to('/admin/regime')->with('success', 'R\u00e9gime mis \u00e0 jour');
     }

@@ -28,7 +28,6 @@ CREATE TABLE regime (
     poidsInfluencefood DECIMAL(10, 2) NOT NULL, -- Ex: -2.5 (kg) ou +1.5 (kg)
     dureeInfluencefood INT,
     idActivite INT,
-    poidsInfluenceActivite DECIMAL(10, 2) NOT NULL,
     pourcentageViande DECIMAL(5, 2),
     pourcentagePoisson DECIMAL(5, 2),
     pourcentageVolaille DECIMAL(5, 2), FOREIGN KEY (idActivite) REFERENCES activite (id)

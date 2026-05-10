@@ -16,8 +16,7 @@ class RegimeModel extends Model
         'prixJournalier',
         'poidsInfluencefood',
         'dureeInfluencefood',
-        'poidsInfluenceActivite',
-        'dureeInfluenceActivite',
+        'idActivite',
         'pourcentageViande',
         'pourcentagePoisson',
         'pourcentageVolaille'
@@ -120,7 +119,7 @@ class RegimeModel extends Model
         return $recommendations;
     }
 
-    public function createRegime(string $nom, string $description, float $prixJournalier, float $poidsInfluencefood, int $dureeInfluencefood, float $poidsInfluenceActivite, int $dureeInfluenceActivite, float $pourcentageViande, float $pourcentagePoisson, float $pourcentageVolaille)
+    public function createRegime(string $nom, string $description, float $prixJournalier, float $poidsInfluencefood, int $dureeInfluencefood, int $idActivite, float $pourcentageViande, float $pourcentagePoisson, float $pourcentageVolaille)
     {
         $data = [
             'nom' => $nom,
@@ -128,8 +127,7 @@ class RegimeModel extends Model
             'prixJournalier' => $prixJournalier,
             'poidsInfluencefood' => $poidsInfluencefood,
             'dureeInfluencefood' => $dureeInfluencefood,
-            'poidsInfluenceActivite' => $poidsInfluenceActivite,
-            'dureeInfluenceActivite' => $dureeInfluenceActivite,
+            'idActivite' => $idActivite,
             'pourcentageViande' => $pourcentageViande,
             'pourcentagePoisson' => $pourcentagePoisson,
             'pourcentageVolaille' => $pourcentageVolaille
@@ -138,7 +136,7 @@ class RegimeModel extends Model
         return $this->insert($data);
     }
 
-    public function updateRegime(int $id, string $nom, string $description, float $prixJournalier, float $poidsInfluencefood, int $dureeInfluencefood, float $poidsInfluenceActivite, int $dureeInfluenceActivite, float $pourcentageViande, float $pourcentagePoisson, float $pourcentageVolaille)
+    public function updateRegime(int $id, string $nom, string $description, float $prixJournalier, float $poidsInfluencefood, int $dureeInfluencefood, int $idActivite, float $pourcentageViande, float $pourcentagePoisson, float $pourcentageVolaille)
     {
         $data = [
             'nom' => $nom,
@@ -146,8 +144,7 @@ class RegimeModel extends Model
             'prixJournalier' => $prixJournalier,
             'poidsInfluencefood' => $poidsInfluencefood,
             'dureeInfluencefood' => $dureeInfluencefood,
-            'poidsInfluenceActivite' => $poidsInfluenceActivite,
-            'dureeInfluenceActivite' => $dureeInfluenceActivite,
+            'idActivite' => $idActivite,
             'pourcentageViande' => $pourcentageViande,
             'pourcentagePoisson' => $pourcentagePoisson,
             'pourcentageVolaille' => $pourcentageVolaille

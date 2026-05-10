@@ -36,16 +36,6 @@
                 </div>
 
                 <div class="form-row">
-                    <label>Poids influence activité (kg par cycle)</label>
-                    <input type="number" step="0.01" name="poidsInfluenceActivite" value="<?= set_value('poidsInfluenceActivite') ?>" />
-                </div>
-
-                <div class="form-row">
-                    <label>Durée influence activité (jours)</label>
-                    <input type="number" name="dureeInfluenceActivite" value="<?= set_value('dureeInfluenceActivite') ?>" />
-                </div>
-
-                <div class="form-row">
                     <label>% Viande</label>
                     <input type="number" step="0.01" name="pourcentageViande" value="<?= set_value('pourcentageViande') ?>" />
                 </div>
