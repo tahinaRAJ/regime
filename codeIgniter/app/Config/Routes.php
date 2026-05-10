@@ -22,6 +22,7 @@ $routes->get('/paiement/gold', 'PaiementController::gold');
 $routes->post('/paiement/gold', 'PaiementController::acheterGold');
 $routes->get('/paiement/regime/(:num)', 'PaiementController::showRegimeDetail/$1');
 $routes->post('/paiement/regime/(:num)', 'PaiementController::acheterRegime/$1');
+$routes->get('/paiement/export/(:num)', 'PaiementController::exportPdf/$1');
 
 $routes->get('/regime', 'RegimeController::index');
 $routes->get('/regime/objectifs', 'RegimeController::getObjectifs');

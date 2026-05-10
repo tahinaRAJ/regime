@@ -31,6 +31,11 @@
                 <input type="hidden" name="objectif_id" value="<?= esc((string) $objectifId) ?>">
                 <button type="submit" class="btn-primary">Acheter ce régime</button>
             </form>
+            <?php if (!empty($bought)): ?>
+                <div style="margin-top:12px;">
+                    <a href="<?= site_url('/paiement/export/' . $regime['id']) ?>" class="btn-primary" style="background:#333;color:#fff">Exporter en PDF</a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

@@ -38,9 +38,11 @@
     regimes.forEach(r => {
       const el = document.createElement('div');
       el.className = 'regime-card';
+      const detailHref = `/paiement/regime/${r.id}`;
       el.innerHTML = `<h4>${escapeHtml(r.nom)}</h4>
         <p>${escapeHtml(r.description||'')}</p>
-        <div class="regime-meta">Durée: <strong>${escapeHtml(r.joursEstimes)}</strong> jours · Coût: <strong>${escapeHtml(r.coutEstime)}</strong> €</div>`;
+        <div class="regime-meta">Durée: <strong>${escapeHtml(r.joursEstimes)}</strong> jours · Coût: <strong>${escapeHtml(r.coutEstime)}</strong> €</div>
+        <div style="margin-top:8px"><a class="see-more" href="${detailHref}">Voir plus</a></div>`;
       list.appendChild(el);
     });
     panel.appendChild(list);
