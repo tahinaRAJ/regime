@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
 
 <style>
-/* Adjustments requested by user */
 .dashboard-container {
   max-width: 1200px;
   width: 100%;
@@ -26,10 +25,13 @@
 /* Title legibility over gradient background */
 .mindful-header h1 {
   color: #1b5e20 !important; /* Darker green */
-  text-shadow: 0 1px 2px rgba(255,255,255,0.8);
 }
 .mindful-header p {
   color: #2e7d32 !important; /* Dark solid green instead of light green */
+}
+header .site-title {
+  letter-spacing: normal;
+  text-shadow: none;
 }
 #choices {
   display: flex;

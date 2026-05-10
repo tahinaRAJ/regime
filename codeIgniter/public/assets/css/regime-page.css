@@ -44,9 +44,7 @@ body {
 
 /* ── Navbar (inline styles in HTML stay, these refine them) ─ */
 header .site-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 19px;
-  font-weight: 800;
+  font-family: 'Arial', sans-serif;
   color: #fff;
   letter-spacing: -0.3px;
 }
