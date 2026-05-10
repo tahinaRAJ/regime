@@ -2,7 +2,6 @@ recommendation de regime pour imc ideal
 fix the overall design (i tried but well)
 fix la navigation dans le site (admin tokony afaka manao zavatra vitan client ko)
 i havent tested the cruds yet
-    update: i tested it, its not even a crud yet, i can only create
-    theres no update, list or delete 
+    Undefined array key "dureeInfluenceActivite" quand j'essaie de edit un regime
     also Unknown column 'dureeInfluenceActivite' in 'field list' quand j'essaie de creer un regime
 compte admin no tokony default value fa tsy client
