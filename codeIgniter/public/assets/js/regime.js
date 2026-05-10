@@ -41,17 +41,19 @@
       card.className = 'regime-card';
       const nom = escapeHtml(r.nom ?? r['nom'] ?? 'Régime');
       const desc = escapeHtml(r.description ?? r['description'] ?? '');
-      const variation = (r.objectifKg ?? r.variation ?? r.poidsInfluencefood ?? 0);
+      const variation = (r.variationParCycleKg ?? r.variation ?? r.poidsInfluencefood ?? 0);
+      const targetKg = (r.objectifKg ?? 0);
+      const isGain = variation > 0;
       const jours = r.joursEstimes ?? r.jours ?? r.joursEstimes ?? '-';
       const cout = r.coutEstime ?? r.cout ?? r.coutEstime ?? '-';
 
       card.innerHTML = `<h4>${nom}</h4>
         <p>${desc}</p>
-        <div class="regime-meta">Variation par cycle: <strong>${variation} kg</strong> · Durée: <strong>${jours} jours</strong></div>
+        <div class="regime-meta">Variation par cycle: <strong>${variation > 0 ? '+' : ''}${variation} kg</strong> · Durée: <strong>${jours} jours</strong></div>
         <a class="see-more" href="#">Voir plus</a>`;
 
       card.addEventListener('click', ()=>{
-        forecastWeight.textContent = (variation>0?'+':'') + variation;
+        forecastWeight.textContent = (isGain ? '+' : '-') + targetKg;
         forecastDuration.textContent = jours;
         forecastCost.textContent = (cout !== '-') ? (cout + ' €') : '-';
       });
@@ -60,10 +62,12 @@
 
     const first = regimes[0];
     if(first){
-      const variation = (first.objectifKg ?? first.variation ?? first.poidsInfluencefood ?? 0);
+      const variation = (first.variationParCycleKg ?? first.variation ?? first.poidsInfluencefood ?? 0);
+      const targetKg = (first.objectifKg ?? 0);
+      const isGain = variation > 0;
       const jours = first.joursEstimes ?? first.jours ?? '-';
       const cout = first.coutEstime ?? first.cout ?? '-';
-      forecastWeight.textContent = (variation>0?'+':'') + variation;
+      forecastWeight.textContent = (isGain ? '+' : '-') + targetKg;
       forecastDuration.textContent = jours;
       forecastCost.textContent = (cout !== '-') ? (cout + ' €') : '-';
     }
