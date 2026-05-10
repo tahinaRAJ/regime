@@ -4,14 +4,17 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\RegimeModel;
+use App\Models\ActiviteModel;
 
 class RegimeAdminController extends BaseController
 {
     protected $regimeModel;
+    protected $activiteModel;
 
     public function __construct()
     {
         $this->regimeModel = new RegimeModel();
+        $this->activiteModel = new ActiviteModel();
     }
 
     public function index()
@@ -22,7 +25,8 @@ class RegimeAdminController extends BaseController
 
     public function create()
     {
-        return view('admin/regime/create');
+        $activites = $this->activiteModel->findAll();
+        return view('admin/regime/create', ['activites' => $activites]);
     }
 
     public function store()
@@ -52,7 +56,8 @@ class RegimeAdminController extends BaseController
         if (!$regime) {
             return redirect()->to('/admin/regime')->with('erreur', 'R\u00e9gime non trouv\u00e9');
         }
-        return view('admin/regime/edit', ['regime' => $regime]);
+        $activites = $this->activiteModel->findAll();
+        return view('admin/regime/edit', ['regime' => $regime, 'activites' => $activites]);
     }
 
     public function update($id)
