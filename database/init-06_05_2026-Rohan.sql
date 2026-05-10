@@ -20,6 +20,13 @@ CREATE TABLE caracteristique (
     FOREIGN KEY (idUser) REFERENCES user (id)
 );
 
+CREATE TABLE activite (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255) NOT NULL,
+    poidsInfluenceActivite DECIMAL(10, 2) NOT NULL
+);
+
+
 CREATE TABLE regime (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(255) NOT NULL,
@@ -84,11 +91,6 @@ CREATE TABLE choixUser (
 );
 
 
-CREATE TABLE activite (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(255) NOT NULL,
-    poidsInfluenceActivite DECIMAL(10, 2) NOT NULL
-);
 
 ALTER TABLE user
 ADD COLUMN role ENUM('client', 'admin') NOT NULL DEFAULT 'client';
