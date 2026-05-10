@@ -33,7 +33,6 @@ CREATE TABLE regime (
     pourcentagePoisson DECIMAL(5, 2),
     pourcentageVolaille DECIMAL(5, 2), FOREIGN KEY (idActivite) REFERENCES activite (id)
 );
-
 CREATE TABLE objectif (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(255) NOT NULL
@@ -85,6 +84,7 @@ CREATE TABLE choixUser (
     dateChoix DATETIME NOT NULL
 );
 
+
 CREATE TABLE activite (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(255) NOT NULL,
@@ -100,7 +100,6 @@ Insert into objectif (nom) values ('Gagner du poids');
 
 Insert into objectif (nom) values ('Atteindre un imc ideal');
 
-/* standard et gold sont les deux options disponibles pour les clients */
 Insert into option (nom) values ('Standard');
 
 Insert into option (nom) values ('Gold');

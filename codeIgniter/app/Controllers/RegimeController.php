@@ -102,7 +102,7 @@ class RegimeController extends BaseController
     public function getObjectifs()
     {
         try {
-            $model = new \App\Models\ObjectifModel();
+            $model = new ObjectifModel();
             $objectifs = $model->getObjectifs();
             return $this->response->setJSON($objectifs);
         } catch (\Throwable $e) {
