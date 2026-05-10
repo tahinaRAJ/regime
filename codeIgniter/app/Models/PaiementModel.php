@@ -11,7 +11,7 @@ class PaiementModel extends Model
     protected $useAutoIncrement = true;
 
     protected $allowedFields = [
-        'idUserOption',
+        'idUser',
         'datePaiement'
     ];
 }
