@@ -39,11 +39,11 @@
                         <?php else: ?>
                             <?php foreach ($regimes as $r): ?>
                                 <tr>
-                                    <td><?= esc($r['id']) ?></td>
-                                    <td><?= esc($r['nom']) ?></td>
-                                    <td><?= esc($r['prixJournalier']) ?></td>
-                                    <td><?= esc($r['poidsInfluencefood']) ?></td>
-                                    <td><?= esc($r['dureeInfluencefood']) ?></td>
+                                    <td><?= esc((string)$r['id']) ?></td>
+                                    <td><?= esc((string)$r['nom']) ?></td>
+                                    <td><?= esc((string)$r['prixJournalier']) ?></td>
+                                    <td><?= esc((string)$r['poidsInfluencefood']) ?></td>
+                                    <td><?= esc((string)$r['dureeInfluencefood']) ?></td>
                                     <td>
                                         <a href="/admin/regime/edit/<?= $r['id'] ?>" class="btn-primary">Éditer</a>
                                         <form method="post" action="/admin/regime/delete/<?= $r['id'] ?>" style="display:inline" onsubmit="return confirm('Supprimer ?')">
