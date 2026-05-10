@@ -9,10 +9,9 @@
             <h1>Gestion des régimes</h1>
             <div>
                 <a href="/admin/regime/create" class="btn-primary">Créer un régime</a>
-                </div>
             </div>
+        </div>
 
-            <?= $this->endSection() ?>
         <?php if (session()->getFlashdata('success')): ?>
                 <div class="flash-success"><?= session()->getFlashdata('success') ?></div>
         <?php endif; ?>
@@ -58,3 +57,5 @@
         </table>
     </div>
 </div>
+
+<?= $this->endSection() ?>

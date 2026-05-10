@@ -9,10 +9,9 @@
             <h1>Gestion des activités</h1>
             <div>
                 <a href="/admin/activite/create" class="btn-primary">Créer une activité</a>
-                </div>
             </div>
+        </div>
 
-            <?= $this->endSection() ?>
         <?php if (session()->getFlashdata('success')): ?>
                 <div class="flash-success"><?= session()->getFlashdata('success') ?></div>
         <?php endif; ?>
@@ -54,3 +53,5 @@
         </table>
     </div>
 </div>
+
+<?= $this->endSection() ?>
